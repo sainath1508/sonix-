@@ -1,0 +1,23 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations:
+    fabric8.io/iconUrl: "img/icons/camel.svg"
+  labels:
+    provider: "fabric8"
+    project: "payment"
+    version: "1"
+    group: "creditcard"
+  name: "payment"
+spec:
+  ports:
+  - name: "default"
+    port: 8181
+    protocol: "TCP"
+    targetPort: 8181
+  selector:
+    project: "payment"
+    provider: "fabric8"
+    group: "creditcard"
+  type: "LoadBalancer"
